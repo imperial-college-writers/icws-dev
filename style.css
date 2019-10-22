@@ -1,6 +1,8 @@
-html, body, ul, h2 {
+html, body, h2 {
     margin: 0;
     padding: 0;
+    vertical-align: baseline;
+    background: transparent;
 }
 
 html {
@@ -10,6 +12,14 @@ html {
     font-family: 'PT Serif', serif;
 
     scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 * {
@@ -30,16 +40,18 @@ header {
     font-family: 'News Cycle', sans-serif;
     margin-bottom: 16px;
 }
-nav ul {
+#main-nav ul {
+    maring: 0;
+    padding: 0;
     display: block;
     max-width: 240px;
     margin: auto;r
 }
-nav li {
+#main-nav li {
     display: inline-block;
     margin: auto;
 }
-nav li+li::before {
+#main-nav li+li::before {
     content: " - ";
 }
 
@@ -82,6 +94,18 @@ section.page main {
     flex-grow: 9;
 }
 
+/* page-specific: */
+#blog article {
+
+}
+#blog article::after{
+    /* line separator */
+    content: "";
+    display: block;
+    width: 20%;
+    border-top: 1px solid #403935;
+    margin: 30px 0;
+}
 
 @media screen and (max-width: 600px) {
     /* mobile layout */
@@ -97,12 +121,13 @@ section.page main {
 	flex-basis: auto;
     }
 }
+body > main {
+    flex-grow: 1;
+}
 body > footer {
     width: 100%;
-    position: absolute;
-    bottom: 0;
 
-    text-align: left;
+    text-align: center;
     padding: 4px 16px;
     
     color: #a8a19d;
